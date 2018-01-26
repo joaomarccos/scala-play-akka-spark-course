@@ -1,0 +1,28 @@
+@import model._
+@import play.api.Play.current
+@import play.api.i18n.Messages.Implicits._
+@import helper._
+
+@(participanteForm: Form[Participante])
+
+@*
+ * Call the `main` template with two arguments. The first
+ * argument is a `String` with the title of the page, the second
+ * argument is an `Html` object containing the body of the page.
+ *@
+@main("Participantes") {
+    
+    <div class="row">
+    	<div class="col-sm-offset-2 col-sm-4">
+    		<h2>Novo participante</h2>
+        
+        @form(routes.ParticipantesCotroller.novo){
+          @inputText(participanteForm("nome"),'class -> "form-control", '_label -> "Nome")
+          @inputText(participanteForm("email"),'class -> "form-control", '_label -> "Email")
+          <input class="btn btn-primary" type="submit" value="Salvar">
+        }        
+    		
+    	</div>
+    </div>    
+
+}

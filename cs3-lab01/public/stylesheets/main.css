@@ -1,0 +1,7 @@
+dd.error{
+	font-size: 10px;
+	color: red;
+}
+dd.info{
+	display: none;
+}

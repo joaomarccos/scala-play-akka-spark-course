@@ -1,0 +1,14 @@
+# --- !Ups
+
+CREATE SEQUENCE participantes_id_seq;
+
+CREATE TABLE PARTICIPANTES(
+	ID INTEGER NOT NULL DEFAULT nextval('participantes_id_seq'),
+	NOME VARCHAR(255) NOT NULL,
+	EMAIL VARCHAR(255) NOT NULL
+);
+
+# --- !Downs
+
+DROP TABLE PARTICIPANTES;
+DROP SEQUENCE participantes_id_seq;

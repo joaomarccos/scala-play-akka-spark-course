@@ -1,0 +1,47 @@
+@import model._
+
+@(participantes: List[Participante], visitas: Int)
+
+@*
+ * Call the `main` template with two arguments. The first
+ * argument is a `String` with the title of the page, the second
+ * argument is an `Html` object containing the body of the page.
+ *@
+@main("Participantes") {
+
+    @*
+     * Get an `Html` object by calling the built-in Play welcome
+     * template and passing a `String` message.
+     *@
+    <div class="row">
+    	<div class="col-sm-11">
+    		<h4 class="pull-right panel">Numero de visitas: <span class="badge">@visitas</span></h4>    		
+    	</div>
+    </div>
+	
+    <div class="row">
+    	<div class="col-sm-offset-2 col-sm-4">
+    		<h2>Participantes</h2>
+    		<table class="table">
+		  		<tr>
+		  			<th>Nome</th>	
+		  			<th>Email</th>
+		  		</tr>
+
+				@participantes.map{ p =>
+		  		<tr>
+					<td>@p.nome</td>			
+					<td>@p.email</td>	
+		  		</tr>
+		  		}
+		  		<tr>
+  		  			<td colspan="2">
+  		  				<a href="@routes.ParticipantesCotroller.pageCadastro"
+  		  				class="btn btn-block btn-primary">Novo</a>
+  		  			</td>
+  		  		</tr>  		
+			</table>    	
+    	</div>
+    </div>    
+
+}
